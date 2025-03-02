@@ -18,10 +18,11 @@
             text-align: center;
             padding: 20px;
         }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
+        .container > section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         nav {
             background: #333;
@@ -64,9 +65,6 @@
             overflow: hidden;
             border-left: 3px solid #333;
         }
-        .panel p {
-            margin: 10px 0;
-        }
         .image-container {
             text-align: center;
             margin-top: 20px;
@@ -74,7 +72,17 @@
         .image-container img {
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	}
+	      @media (min-width: 768px) {
+		       .container {
+                grid-template-columns: repeat(2, 1fr); /* Two columns for larger screens */
+            }
         }
+        @media (min-width: 1024px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+	    }
+	}
     </style>
 </head>
 <body>
