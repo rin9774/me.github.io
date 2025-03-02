@@ -1,72 +1,168 @@
 <!DOCTYPE html>
 <html>
 <head>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
         }
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
         }
-        .main-info {
+        nav {
             background: #333;
             color: #fff;
-            padding: 20px;
+            padding: 10px 0;
+            text-align: center;
         }
-        .main-info h1 {
-            margin: 0;
+        nav a {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin: 0 10px;
         }
-        .hobbies, .lewis, .course, .job {
-            background: #e7e7e7;
+        nav a:hover {
+            background-color: #575757;
+        }
+        .accordion {
+            background-color: #f4f4f4;
+            color: #333;
+            cursor: pointer;
             padding: 15px;
-            margin-bottom: 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            transition: 0.4s;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .active, .accordion:hover {
+            background-color: #ccc;
+        }
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: #f9f9f9;
+            overflow: hidden;
+            border-left: 3px solid #333;
+        }
+        .panel p {
+            margin: 10px 0;
+        }
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .image-container img {
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>About Me</h1>
+        <p>Welcome to my personal page</p>
+    </header>
+
+    <nav>
+        <a href="#lewis">Lewis Info</a>
+        <a href="#course">Course</a>
+        <a href="#job">Job</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#fun-fact">Fun Fact</a>
+        <a href="#discord">Discord Info</a>
+    </nav>
+
     <div class="container">
-        <header class="main-info">
-            <h1>[Ryan Tran]</h1>
-            <h1>Preferred Name: [Ryan]</h1>
-        </header>
+        <section id="lewis">
+            <button class="accordion">Year at Lewis</button>
+            <div class="panel">
+                <p>Freshman</p>
+            </div>
 
-        <section class="lewis">
-			<h2>Year at Lewis: [Freshman]</h2>
-			<h2>Lewis major/minor/concentrations: [cybersecurity major]</h2>
-			<h2>Reasons for pursuing this degree: [I believe it is a good career option]</h2>
+            <button class="accordion">Major/Minor/Concentrations</button>
+            <div class="panel">
+                <p>Cybersecurity Major</p>
+            </div>
+
+            <button class="accordion">Reasons for Pursuing This Degree</button>
+            <div class="panel">
+                <p>I believe it is a good career option</p>
+            </div>
         </section>
 
-		<section class="course">
-            <h2>Reasons for Taking This Course</h2>
-            <p>[this course is part of my major]</p>
+        <section id="course">
+            <button class="accordion">Reasons for Taking This Course</button>
+            <div class="panel">
+                <p>This course is part of my major</p>
+            </div>
         </section>
 
-		<section class="job">
-            <p>Current/Recent Job</p>
-			<p>[unemployed]</p>
-        </section>		
-
-        <section class="hobbies">
-            <h2>Hobbies and Special Interests</h2>
-            <p>[I enjoy video games]</p>
+        <section id="job">
+            <button class="accordion">Current/Recent Job</button>
+            <div class="panel">
+                <p>Unemployed</p>
+            </div>
         </section>
 
-        <section class="fun-fact">
-            <h2>Fun Fact</h2>
-            <p>[I dont eat pork]</p>
+        <section id="hobbies">
+            <button class="accordion">Hobbies and Special Interests</button>
+            <div class="panel">
+                <p>I enjoy video games</p>
+            </div>
         </section>
 
-	    <section class="information">
-		    <h2>discord information</h2>
-		    <p>[rin8128]</p>
-	
-     <img src="https://raw.githubusercontent.com/rin9774/me.github.io/96d7d18155ab4c2b2ccc662244e1c4fc36038faa/Me.JPG" alt="map" width="800" height="800" />
-	</section> 		    
+        <section id="fun-fact">
+            <button class="accordion">Fun Fact</button>
+            <div class="panel">
+                <p>I don't eat pork</p>
+            </div>
+        </section>
+
+        <section id="discord">
+            <button class="accordion">Discord Information</button>
+            <div class="panel">
+                <p>Discord ID: rin8128</p>
+            </div>
+        </section>
+
+        <div class="image-container">
+            <img src="https://raw.githubusercontent.com/rin9774/me.github.io/96d7d18155ab4c2b2ccc662244e1c4fc36038faa/Me.JPG" alt="Ryan Tran" width="800" height="800">	     
     </div>
+	 </div>
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
