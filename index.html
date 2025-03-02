@@ -87,7 +87,7 @@
 </head>
 <body>
     <header>
-        <h1>About Me</h1>
+    <h1 id="name">Ryan Tran</h1>
         <p>Welcome to my personal page</p>
     </header>
 
@@ -159,6 +159,9 @@
 	 </div>
 
     <script>
+	      document.getElementById("name").addEventListener("click", function() {
+            this.style.color = "blue";
+		             });
         var acc = document.getElementsByClassName("accordion");
         for (var i = 0; i < acc.length; i++) {
             acc[i].addEventListener("click", function() {
